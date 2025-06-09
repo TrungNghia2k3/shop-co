@@ -1,13 +1,14 @@
-/* Đặt margin và padding mặc định cho toàn bộ tài liệu */
+/* Import Google Font: Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Đảm bảo box model tính toán chính xác */
+    box-sizing: border-box;
 }
 
-/* Cài đặt font chữ tiêu chuẩn */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    background-color: #0D0D0D;
+    color: #fff;
 }
-
-
