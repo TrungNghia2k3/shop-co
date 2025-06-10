@@ -1,0 +1,33 @@
+.dress-style-section {
+    margin-bottom: 60px;
+}
+
+.dress-style-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    height: 289px;
+}
+
+.dress-style-item:hover {
+    transform: scale(1.02);
+}
+
+.dress-style-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.dress-style-item h3 {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #000;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

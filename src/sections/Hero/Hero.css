@@ -1,0 +1,20 @@
+.hero-section {
+    background-image: url('../../../public/assets/images/hero.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-container {
+    padding-left: 4.3rem;
+}
+
+.hero-container h1 {
+    font-size: 64px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-family: 'Integral CF', sans-serif;
+}

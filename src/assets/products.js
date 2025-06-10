@@ -1,0 +1,66 @@
+const products = [
+  {
+    id: 1,
+    name: "T-shirt with Tape Details",
+    new_price: 120,
+    rating: 4.5,
+    image: "/assets/images/products/product-1.png",
+  },
+  {
+    id: 2,
+    name: "Skinny Fit Jeans",
+    old_price: 260,
+    new_price: 240,
+    discount: 20,
+    rating: 3.5,
+    image: "/assets/images/products/product-2.png",
+  },
+  {
+    id: 3,
+    name: "Checkered Shirt",
+    new_price: 180,
+    rating: 4.5,
+    image: "/assets/images/products/product-3.png",
+  },
+  {
+    id: 4,
+    name: "Sleeve Striped T-shirt",
+    old_price: 130,
+    new_price: 160,
+    discount: 30,
+    rating: 4.5,
+    image: "/assets/images/products/product-4.png",
+  },
+  {
+    id: 5,
+    name: "Vertical Striped Shirt",
+    old_price: 212,
+    new_price: 232,
+    rating: 5.0,
+    discount: 20,
+    image: "/assets/images/products/product-5.png",
+  },
+  {
+    id: 6,
+    name: "Courage Graphic T-shirt",
+    new_price: 145,
+    rating: 4.0,
+    image: "/assets/images/products/product-6.png",
+  },
+  {
+    id: 7,
+    name: "Loose Fit Bermuda Shorts",
+    new_price: 80,
+    rating: 3.0,
+    image: "/assets/images/products/product-7.png",
+  },
+  {
+    id: 8,
+    name: "Faded Skinny Jeans",
+    new_price: 210,
+    rating: 4.5,
+    image: "/assets/images/products/product-8.png",
+  },
+];
+
+export default products;

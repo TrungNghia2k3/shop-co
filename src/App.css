@@ -9,6 +9,62 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #0D0D0D;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
+}
+
+.w-1440 {
+    width: 1440px;
+    margin: 0 auto;
+}
+
+.w-1292 {
+    width: 1292px;
+}
+
+.px-6 {
+    padding-left: 4.3rem;
+    padding-right: 4.3rem;
+}
+
+.no-outline {
+    outline: none !important;
+}
+
+.no-outline:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.section-title {
+    font-family: 'Integral CF', sans-serif;
+    text-align: center;
+    margin: 40px 0;
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+@font-face {
+    font-family: 'Integral CF';
+    src: url('/public/assets/fonts/Fontspring-DEMO-integralcf-regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Integral CF';
+    src: url('/public/assets/fonts/Fontspring-DEMO-integralcf-bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Integral CF';
+    src: url('/public/assets/fonts/Fontspring-DEMO-integralcf-heavy.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
 }
