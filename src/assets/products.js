@@ -56,10 +56,26 @@ const products = [
   },
   {
     id: 8,
-    name: "Faded Skinny Jeans",
+    name: "Gradient Graphic T-shirt",
     new_price: 210,
     rating: 4.5,
     image: "/assets/images/products/product-8.png",
+  },
+  {
+    id: 9,
+    name: "Polo with Tipping Details",
+    new_price: 180,
+    rating: 4.5,
+    image: "/assets/images/products/product-9.png",
+  },
+  {
+    id: 10,
+    name: "Black Striped T-shirt",
+    new_price: 120,
+    old_price: 150,
+    discount: 30,
+    rating: 4.5,
+    image: "/assets/images/products/product-10.png",
   },
 ];
 

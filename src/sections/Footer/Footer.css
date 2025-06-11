@@ -1,0 +1,73 @@
+.footer-title {
+    color: #000;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 1rem;
+}
+
+.footer-link {
+    color: #666;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 2;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: #333;
+}
+
+.brand-description {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 1.2rem 0 1.8rem 0;
+    max-width: 300px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    color: black;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.social-icon:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.footer-bottom {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    margin-top: 40px;
+}
+
+.payment-icons {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+}
+
+.payment-icon {
+    padding: 4px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.payment-icons img {
+    height: 16px;
+    width: auto;
+}
+
+.copyright {
+    color: #666;
+    font-size: 14px;
+}

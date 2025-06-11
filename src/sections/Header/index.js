@@ -2,29 +2,33 @@ import React, { useState } from "react";
 import "./Header.css";
 const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
-
-  if (!isVisible) return null;
-
   return (
     <>
       <header>
-        <div className="w-100 bg-black text-white p-2 ">
-          <div className="w-1440 d-flex justify-content-center align-items-center position-relative">
-            <p className="m-0 fs-6">
-              Sign up and get 20% off to your first order. Sign Up Now
-            </p>
-            <div
-              className="position-absolute me-2"
-              style={{ right: 70, cursor: "pointer" }}
-            >
-              <i className="bi bi-x-lg" onClick={() => setIsVisible(false)}></i>
+        {isVisible && (
+          <div className="w-100 bg-black text-white p-2 ">
+            <div className="w-1440 d-flex justify-content-center align-items-center position-relative">
+              <p className="m-0 fs-6">
+                Sign up and get 20% off to your first order. Sign Up Now
+              </p>
+              <div
+                className="position-absolute me-2"
+                style={{ right: 70, cursor: "pointer" }}
+              >
+                <i
+                  className="bi bi-x-lg"
+                  onClick={() => setIsVisible(false)}
+                ></i>
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
-        <div className="w-1440 d-flex align-items-center justify-content-between px-6 py-4">
+        <div className="w-1440 d-flex align-items-center justify-content-between px-6 py-4 border-bottom">
           {/* Logo */}
-          <h2 className="logo">Shop.Co</h2>
+          <a href="/" className="text-dark text-decoration-none">
+            <h2 className="logo">Shop.Co</h2>
+          </a>
 
           {/* Navigation */}
           <nav>
@@ -36,10 +40,10 @@ const Header = () => {
               </li>
               <li className="nav-item mx-1 text-nowrap">
                 <a
-                  href="#on-sale"
+                  href="/category"
                   className="nav-link text-dark text-capitalize"
                 >
-                  On Sale
+                  Category
                 </a>
               </li>
               <li className="nav-item mx-1 text-nowrap">
@@ -74,7 +78,10 @@ const Header = () => {
 
           {/* Cart and User account */}
           <div className="d-flex align-items-center ms-3 fs-4">
-            <i className="bi bi-cart3 mx-2"></i>
+            <a href="/shopping-cart" className="text-dark text-decoration-none">
+              <i className="bi bi-cart3 mx-2"></i>
+            </a>
+
             <i className="bi bi-person-circle mx-2"></i>
           </div>
         </div>

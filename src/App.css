@@ -45,6 +45,23 @@ body {
     text-transform: uppercase;
 }
 
+.logo {
+    font-family: 'Integral CF', sans-serif;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: bold;
+    margin: 0;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    margin-top: 2px;
+}
+
+/* SVG dividers */
+.breadcrumb-svg-arrow {
+    --bs-breadcrumb-divider: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor'%3e%3cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
 @font-face {
     font-family: 'Integral CF';
     src: url('/public/assets/fonts/Fontspring-DEMO-integralcf-regular.otf') format('opentype');

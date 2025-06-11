@@ -27,13 +27,17 @@ const Products = ({ title, products }) => {
           {products.map((product) => (
             <div className="col" key={product.id}>
               <div className="product-card">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-100 rounded-5"
-                />
+                <a href={"/product-detail"}>
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-100 rounded-5"
+                  />
+                </a>
                 <div className="mt-3">
-                  <h5>{product.name}</h5>
+                  <a className="text-decoration-none text-black" href={"/product-detail"}>
+                    <h5>{product.name}</h5>
+                  </a>
 
                   {/* Rating */}
                   <div className="rating-box d-flex align-items-center gap-1 mb-2">
