@@ -1,0 +1,13 @@
+/* Category Page Styles */
+
+/* Hide desktop filter panel on mobile devices */
+@media (max-width: 575.98px) {
+    .desktop-filter-panel {
+        display: none !important;
+    }
+    
+    .mobile-full-width {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+}

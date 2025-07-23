@@ -1,96 +1,45 @@
-import React, { useState } from "react";
+import React from "react";
 import "./FilterPanel.css";
 import PriceRangeFilter from "../../components/PriceRangeFilter";
+import { useFilterPanel } from "../../hooks";
 
 const FilterPanel = ({ onApplyFilters }) => {
-  const [selectedCategories, setSelectedCategories] = useState([]);
-  const [priceRange, setPriceRange] = useState([50, 200]);
-  const [selectedColors, setSelectedColors] = useState([]);
-  const [selectedSizes, setSelectedSizes] = useState([]);
-  const [selectedStyles, setSelectedStyles] = useState([]);
-
-  const categories = ["T-shirts", "Shorts", "Shirts", "Hoodie", "Jeans"];
-
-  const colors = [
-    { name: "Green", value: "#22c55e" },
-    { name: "Red", value: "#ef4444" },
-    { name: "Yellow", value: "#eab308" },
-    { name: "Orange", value: "#f97316" },
-    { name: "Light Blue", value: "#06b6d4" },
-    { name: "Blue", value: "#3b82f6" },
-    { name: "Purple", value: "#8b5cf6" },
-    { name: "Pink", value: "#ec4899" },
-    { name: "White", value: "#ffffff" },
-    { name: "Black", value: "#000000" },
-  ];
-
-  const sizes = [
-    "XX-Small",
-    "X-Small",
-    "Small",
-    "Medium",
-    "Large",
-    "X-Large",
-    "XX-Large",
-    "3X-Large",
-    "4X-Large",
-  ];
-
-  const styles = ["Casual", "Formal", "Party", "Gym"];
-
-  const handleCategoryToggle = (category) => {
-    setSelectedCategories((prev) =>
-      prev.includes(category)
-        ? prev.filter((c) => c !== category)
-        : [...prev, category]
-    );
-  };
-
-  const handleColorToggle = (color) => {
-    setSelectedColors((prev) =>
-      prev.includes(color) ? prev.filter((c) => c !== color) : [...prev, color]
-    );
-  };
-
-  const handleSizeToggle = (size) => {
-    setSelectedSizes((prev) =>
-      prev.includes(size) ? prev.filter((s) => s !== size) : [...prev, size]
-    );
-  };
-
-  const handleStyleToggle = (style) => {
-    setSelectedStyles((prev) =>
-      prev.includes(style) ? prev.filter((s) => s !== style) : [...prev, style]
-    );
-  };
-
-  const handlePriceChange = (range) => {
-    setPriceRange(range);
-  };
-
-  const handleApplyFilters = () => {
-    const filters = {
-      categories: selectedCategories,
+  const {
+    // State
+    currentFilters: {
+      selectedCategories,
+      selectedColors,
+      selectedSizes,
+      selectedStyles,
       priceRange,
-      colors: selectedColors,
-      sizes: selectedSizes,
-      styles: selectedStyles,
-    };
-    onApplyFilters(filters);
-  };
-
-  // const clearAllFilters = () => {
-  //   setSelectedCategories([]);
-  //   setPriceRange([50, 200]);
-  //   setSelectedColors([]);
-  //   setSelectedSizes([]);
-  //   setSelectedStyles([]);
-  // };
+    },
+    
+    // Data
+    filterData: { categories, colors, sizes, styles },
+    
+    // Computed values
+    activeFilterCount,
+    hasActiveFilters,
+    
+    // Handlers
+    handleCategoryToggle,
+    handleColorToggle,
+    handleSizeToggle,
+    handleStyleToggle,
+    handlePriceChange,
+    handleApplyFilters,
+    clearAllFilters,
+  } = useFilterPanel(onApplyFilters);
 
   return (
     <div className="filter-panel border rounded-4">
       <div className="filter-header">
-        <h4 className="filter-title">Filters</h4>
+        <h4 className="filter-title">
+          Filters
+          {activeFilterCount > 0 && (
+            <span className="filter-count">({activeFilterCount})</span>
+          )}
+        </h4>
         <i className="bi bi-sort-down fs-4 text-secondary"></i>
       </div>
 
@@ -114,7 +63,10 @@ const FilterPanel = ({ onApplyFilters }) => {
         </div>
 
         {/* Price Range */}
-        <PriceRangeFilter onPriceChange={handlePriceChange} />
+        <PriceRangeFilter 
+          onPriceChange={handlePriceChange} 
+          initialRange={priceRange}
+        />
 
         {/* Colors */}
         <div className="filter-section">
@@ -188,12 +140,14 @@ const FilterPanel = ({ onApplyFilters }) => {
 
       {/* Filter Actions */}
       <div className="filter-actions">
-        {/* <button
-          className="btn btn-outline-secondary btn-clear"
-          onClick={clearAllFilters}
-        >
-          Clear All
-        </button> */}
+        {activeFilterCount > 0 && (
+          <button
+            className="btn btn-outline-secondary btn-clear"
+            onClick={clearAllFilters}
+          >
+            Clear All
+          </button>
+        )}
         <button className="btn btn-dark btn-apply" onClick={handleApplyFilters}>
           Apply Filter
         </button>

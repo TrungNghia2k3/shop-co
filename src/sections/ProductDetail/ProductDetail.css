@@ -2,6 +2,13 @@
     padding: 60px 0;
 }
 
+.product-thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+
 .product-thumbnail {
     margin-bottom: 2px;
 }
@@ -132,6 +139,8 @@
     border-radius: 25px;
     border: 1px solid #ddd;
     background-color: #ddd;
+    width: 100%;
+    max-width: 170px;
 }
 
 .decrease-btn {
@@ -182,4 +191,83 @@
     transition: all 0.3s ease;
     width: 100%;
     cursor: pointer;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 575.98px) {
+
+    .product-detail-container {
+        padding: 0 1.2rem;
+    }
+
+    .product-images-row {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .product-thumbnails {
+        display: flex;
+        flex-direction: row;
+        margin: 2rem 0;
+        gap: 0.5rem;
+    }
+
+    .size-option {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+
+    .quantity-selector {
+        border-radius: 25px;
+        border: 1px solid #ddd;
+        background-color: #ddd;
+        width: 100%;
+        max-width: 140px;
+    }
+
+    .decrease-btn {
+        width: 35px;
+        height: 45px;
+        border: none;
+        background-color: #ddd;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .quantity-input {
+        width: 60px;
+        height: 45px;
+        text-align: center;
+        border: none;
+        font-weight: 500;
+        outline: none;
+        background-color: #ddd;
+        padding-left: 8px;
+    }
+
+    .increase-btn {
+        width: 35px;
+        height: 45px;
+        background-color: #ddd;
+        border-radius: 50%;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .add-to-cart-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }

@@ -1,0 +1,36 @@
+.brands-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 0;
+    text-align: center;
+    margin: 0;
+}
+
+.brand-item {
+    padding: 0;
+}
+
+.brand-item:nth-child(1),
+.brand-item:nth-child(3) {
+    display: flex;
+    justify-content: start;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 575.98px) {
+    .brands-row {
+        justify-content: center;
+    }
+
+    .brand-item {
+        padding-bottom: 3rem;
+    }
+
+    .brand-item:nth-child(4),
+    .brand-item:nth-child(5) {
+        padding-bottom: 0rem;
+        flex-basis: 50%;
+    }
+}

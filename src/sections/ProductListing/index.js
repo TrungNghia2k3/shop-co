@@ -1,51 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ProductListing.css";
+import FilterPanel from "../FilterPanel";
+import { useProductListing } from "../../hooks";
 
-const ProductListing = ({ products }) => {
-  const [sortBy, setSortBy] = useState("Most Popular");
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const sortOptions = [
-    "Most Popular",
-    "Newest",
-    "Price: Low to High",
-    "Price: High to Low",
-    "Rating: High to Low",
-  ];
-
-  const renderStars = (rating) => {
-    const stars = [];
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 !== 0;
-
-    for (let i = 0; i < 5; i++) {
-      if (i < fullStars) {
-        stars.push(<i key={i} className="bi bi-star-fill text-warning"></i>);
-      } else if (i === fullStars && hasHalfStar) {
-        stars.push(<i key={i} className="bi bi-star-half text-warning"></i>);
-      } else {
-        stars.push(<i key={i} className="bi bi-star text-warning"></i>);
-      }
-    }
-
-    return stars;
-  };
-
-  const handleSortChange = (option) => {
-    setSortBy(option);
-    // Add sorting logic here
-  };
-
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-    // Add pagination logic here
-  };
-
-  const totalPages = 10;
-  const totalProducts = 100;
-  const productsPerPage = 9;
-  const startProduct = (currentPage - 1) * productsPerPage + 1;
-  const endProduct = Math.min(currentPage * productsPerPage, totalProducts);
+const ProductListing = ({ products, filters }) => {
+  const {
+    // State
+    sortBy,
+    showMobileFilters,
+    isSortDropdownOpen,
+    
+    // Data
+    sortOptions,
+    paginationInfo,
+    currentProducts,
+    
+    // Computed values
+    paginationItems,
+    
+    // Utilities
+    renderStars,
+    
+    // Handlers
+    handleSortChange,
+    handlePageChange,
+    toggleMobileFilters,
+    toggleSortDropdown,
+    handleApplyFilters,
+  } = useProductListing({ products, filters });
 
   return (
     <div className="category-product-listing">
@@ -54,46 +36,57 @@ const ProductListing = ({ products }) => {
         <h2 className="category-title">Casual</h2>
         <div className="listing-controls">
           <span className="showing-text">
-            Showing {startProduct}-{endProduct} of {totalProducts} Products
+            Showing {paginationInfo.startProduct}-{paginationInfo.endProduct} of {paginationInfo.totalProducts} Products
           </span>
+          {/* Sort Dropdown */}
           <div className="sort-dropdown">
             <span className="sort-label">Sort by:</span>
-            <div className="dropdown">
+            <div className="custom-dropdown">
               <button
-                className="btn btn-link dropdown-toggle sort-btn"
+                className="btn btn-outline-dark dropdown-toggle sort-btn d-flex align-items-center"
                 type="button"
-                data-bs-toggle="dropdown"
+                onClick={toggleSortDropdown}
               >
-                {sortBy}
+                <span className="me-2">{sortBy}</span>
               </button>
-              <ul className="dropdown-menu">
-                {sortOptions.map((option) => (
-                  <li key={option}>
+              {isSortDropdownOpen && (
+                <div className="custom-dropdown-menu">
+                  {sortOptions.map((option) => (
                     <button
-                      className="dropdown-item"
+                      key={option}
+                      className={`custom-dropdown-item ${sortBy === option ? 'active' : ''}`}
                       onClick={() => handleSortChange(option)}
                     >
                       {option}
+                      {sortBy === option && (
+                        <i className="bi bi-check-lg ms-2 text-success"></i>
+                      )}
                     </button>
-                  </li>
-                ))}
-              </ul>
+                  ))}
+                </div>
+              )}
             </div>
+          </div>
+          <div className="responsive-filters" onClick={toggleMobileFilters}>
+            <i className="bi bi-sliders2-vertical"></i>
           </div>
         </div>
       </div>
 
       {/* Product Grid */}
       <div className="category-product-grid">
-        {products.map((product) => (
+        {currentProducts.map((product) => (
           <div key={product.id} className="category-product-card">
             <div className="category-product-image">
-              <img src={product.image} alt={product.name} />
+              <a href={"/product-detail"}>
+                <img src={product.image} alt={product.name} />
+              </a>
             </div>
 
             <div className="category-product-info">
-              <h5 className="category-product-name">{product.name}</h5>
-
+              <a href={"/product-detail"} className="text-decoration-none text-black">
+                <h5 className="category-product-name">{product.name}</h5>
+              </a>
               <div className="category-product-rating">
                 <div className="category-product-stars">
                   {renderStars(product.rating)}
@@ -127,23 +120,22 @@ const ProductListing = ({ products }) => {
       <div className="pagination-wrapper">
         <nav>
           <ul className="pagination">
-            <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
+            <li className={`page-item ${paginationInfo.currentPage === 1 ? "disabled" : ""}`}>
               <button
                 className="btn btn-light prev-btn"
-                onClick={() => handlePageChange(currentPage - 1)}
-                disabled={currentPage === 1}
+                onClick={() => handlePageChange(paginationInfo.currentPage - 1)}
+                disabled={paginationInfo.currentPage === 1}
               >
                 <i className="bi bi-arrow-left me-2"></i>
                 Previous
               </button>
             </li>
 
-            {[1, 2, 3, "...", 8, 9, 10].map((page, index) => (
+            {paginationItems.map((page, index) => (
               <li
                 key={index}
-                className={`page-item ${page === "..." ? "disabled" : ""} ${
-                  page === currentPage ? "active" : ""
-                }`}
+                className={`page-item ${page === "..." ? "disabled" : ""} ${page === paginationInfo.currentPage ? "active" : ""
+                  }`}
               >
                 {page === "..." ? (
                   <span className="btn btn-light">...</span>
@@ -159,14 +151,13 @@ const ProductListing = ({ products }) => {
             ))}
 
             <li
-              className={`page-item ${
-                currentPage === totalPages ? "disabled" : ""
-              }`}
+              className={`page-item ${paginationInfo.currentPage === paginationInfo.totalPages ? "disabled" : ""
+                }`}
             >
               <button
                 className="btn btn-light next-btn"
-                onClick={() => handlePageChange(currentPage + 1)}
-                disabled={currentPage === totalPages}
+                onClick={() => handlePageChange(paginationInfo.currentPage + 1)}
+                disabled={paginationInfo.currentPage === paginationInfo.totalPages}
               >
                 Next
                 <i className="bi bi-arrow-right ms-2"></i>
@@ -175,6 +166,21 @@ const ProductListing = ({ products }) => {
           </ul>
         </nav>
       </div>
+
+      {/* Mobile Filter Overlay */}
+      {showMobileFilters && (
+        <div className="mobile-filter-overlay">
+          <div className="mobile-filter-header">
+            <h3>Filters</h3>
+            <button className="close-filters-btn" onClick={toggleMobileFilters}>
+              <i className="bi bi-x-lg"></i>
+            </button>
+          </div>
+          <div className="mobile-filter-content">
+            <FilterPanel onApplyFilters={handleApplyFilters} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

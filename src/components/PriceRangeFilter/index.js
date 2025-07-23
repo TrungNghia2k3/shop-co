@@ -1,16 +1,15 @@
-// Component React
 import React, { useState, useRef, useCallback, useEffect } from "react";
-import "./PriceRangeFilter.css"; 
+import "./PriceRangeFilter.css";
 
-const PriceRangeFilter = ({ onPriceChange }) => {
-  const [minVal, setMinVal] = useState(50);
-  const [maxVal, setMaxVal] = useState(200);
-  const minValRef = useRef(50);
-  const maxValRef = useRef(200);
+const PriceRangeFilter = ({ onPriceChange, initialRange = [80, 320] }) => {
+  const [minVal, setMinVal] = useState(initialRange[0]);
+  const [maxVal, setMaxVal] = useState(initialRange[1]);
+  const minValRef = useRef(initialRange[0]);
+  const maxValRef = useRef(initialRange[1]);
   const range = useRef(null);
 
-  const min = 50;
-  const max = 200;
+  const min = 80;
+  const max = 320;
 
   // Convert to percentage
   const getPercent = useCallback(
@@ -44,6 +43,15 @@ const PriceRangeFilter = ({ onPriceChange }) => {
       range.current.style.width = `${maxPercent - minPercent}%`;
     }
   }, [minVal, maxVal, getPercent]);
+
+  // Initialize price range and update when initialRange changes
+  useEffect(() => {
+    setMinVal(initialRange[0]);
+    setMaxVal(initialRange[1]);
+    minValRef.current = initialRange[0];
+    maxValRef.current = initialRange[1];
+    onPriceChange && onPriceChange(initialRange);
+  }, [initialRange, onPriceChange]);
 
   return (
     <div className="filter-section">

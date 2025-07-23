@@ -1,20 +1,100 @@
 .hero-section {
-    background-image: url('../../../public/assets/images/hero.png');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    background-color: #F2F0F1;
 }
 
-.hero-container {
-    padding-left: 4.3rem;
-}
-
-.hero-container h1 {
-    font-size: 64px;
-    font-weight: bolder;
+.hero-container .hero-main-text {
+    font-size: 4.2rem;
+    font-weight: 700;
     text-transform: uppercase;
     font-family: 'Integral CF', sans-serif;
+}
+
+.hero-button {
+    padding: 1rem 3rem 1rem 3rem;
+    margin-bottom: 3rem;
+    width: 50%;
+    background-color: #000;
+    color: #fff;
+}
+
+.hero-button:hover {
+    background-color: #000;
+    color: #fff;
+    opacity: 0.9;
+    transition: all 0.3s ease-in-out;
+}
+
+.number-list ul {
+    display: flex;
+    gap: 3rem;
+}
+
+.number-list ul li span {
+    font-size: calc(1.375rem + 1.5vw);
+    font-weight: 600;
+    color: #000;
+}
+
+.hero-image {
+    position: relative;
+}
+
+.vector-hero-image-1 {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    font-size: 2.5rem;
+}
+
+.vector-hero-image-2 {
+    position: absolute;
+    top: 20%;
+    right: 0%;
+    font-size: 4.0rem;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 575.98px) {
+
+    .hero-section {
+        padding: 1.2rem 1.2rem 0 1.2rem;
+    }
+
+    .hero-description {
+        font-size: 0.8rem;
+    }
+
+    .hero-container .hero-main-text {
+        text-align: start;
+        font-size: 2.4rem;
+    }
+
+    .hero-button {
+        width: 100%;
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .number-list ul {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .number-list ul li {
+        font-size: 0.9rem;
+    }
+
+    .number-list ul li span {
+        font-size: 1.4rem;
+    }
+    
+    .vector-hero-image-1 {
+        font-size: 1.6rem;
+    }
+
+    .vector-hero-image-2 {
+        font-size: 2.4rem;
+    }
 }

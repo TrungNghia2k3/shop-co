@@ -5,6 +5,11 @@ const products = [
     new_price: 120,
     rating: 4.5,
     image: "/assets/images/products/product-1.png",
+    category: "T-Shirts",
+    colors: ["White", "Black"],
+    sizes: ["Small", "Medium", "Large", "X-Large"],
+    brand: "SHOP.CO",
+    style: "Casual"
   },
   {
     id: 2,
@@ -14,6 +19,11 @@ const products = [
     discount: 20,
     rating: 3.5,
     image: "/assets/images/products/product-2.png",
+    category: "Jeans",
+    colors: ["Blue", "Black"],
+    sizes: ["Small", "Medium", "Large"],
+    brand: "Denim Co",
+    style: "Casual"
   },
   {
     id: 3,
@@ -21,6 +31,11 @@ const products = [
     new_price: 180,
     rating: 4.5,
     image: "/assets/images/products/product-3.png",
+    category: "Shirts",
+    colors: ["Red", "Blue", "Green"],
+    sizes: ["Medium", "Large", "X-Large"],
+    brand: "Classic Style",
+    style: "Formal"
   },
   {
     id: 4,
@@ -30,6 +45,11 @@ const products = [
     discount: 30,
     rating: 4.5,
     image: "/assets/images/products/product-4.png",
+    category: "T-Shirts",
+    colors: ["Orange", "White"],
+    sizes: ["Small", "Medium", "Large"],
+    brand: "SHOP.CO",
+    style: "Casual"
   },
   {
     id: 5,
@@ -39,6 +59,11 @@ const products = [
     rating: 5.0,
     discount: 20,
     image: "/assets/images/products/product-5.png",
+    category: "Shirts",
+    colors: ["Blue", "White"],
+    sizes: ["Medium", "Large", "X-Large", "XX-Large"],
+    brand: "Premium Lines",
+    style: "Formal"
   },
   {
     id: 6,
@@ -46,6 +71,11 @@ const products = [
     new_price: 145,
     rating: 4.0,
     image: "/assets/images/products/product-6.png",
+    category: "T-Shirts",
+    colors: ["Black", "White"],
+    sizes: ["Small", "Medium", "Large"],
+    brand: "GraphicTee",
+    style: "Casual"
   },
   {
     id: 7,
@@ -53,6 +83,11 @@ const products = [
     new_price: 80,
     rating: 3.0,
     image: "/assets/images/products/product-7.png",
+    category: "Shorts",
+    colors: ["Beige", "Navy", "Khaki"],
+    sizes: ["Small", "Medium", "Large", "X-Large"],
+    brand: "Summer Wear",
+    style: "Casual"
   },
   {
     id: 8,
@@ -60,6 +95,11 @@ const products = [
     new_price: 210,
     rating: 4.5,
     image: "/assets/images/products/product-8.png",
+    category: "T-Shirts",
+    colors: ["Purple", "Pink", "Blue"],
+    sizes: ["Medium", "Large", "X-Large"],
+    brand: "GraphicTee",
+    style: "Casual"
   },
   {
     id: 9,
@@ -67,6 +107,11 @@ const products = [
     new_price: 180,
     rating: 4.5,
     image: "/assets/images/products/product-9.png",
+    category: "Polo",
+    colors: ["Navy", "White", "Black"],
+    sizes: ["Small", "Medium", "Large", "X-Large"],
+    brand: "Polo Classic",
+    style: "Smart Casual"
   },
   {
     id: 10,
@@ -76,7 +121,76 @@ const products = [
     discount: 30,
     rating: 4.5,
     image: "/assets/images/products/product-10.png",
+    category: "T-Shirts",
+    colors: ["Black", "White"],
+    sizes: ["Small", "Medium", "Large"],
+    brand: "SHOP.CO",
+    style: "Casual"
   },
+  {
+    id: 11,
+    name: "Classic Denim Jacket",
+    new_price: 320,
+    old_price: 380,
+    discount: 15,
+    rating: 4.8,
+    image: "/assets/images/products/product-1.png",
+    category: "Jackets",
+    colors: ["Blue", "Black"],
+    sizes: ["Medium", "Large", "X-Large"],
+    brand: "Denim Co",
+    style: "Casual"
+  },
+  {
+    id: 12,
+    name: "Sports Track Pants",
+    new_price: 95,
+    rating: 4.2,
+    image: "/assets/images/products/product-2.png",
+    category: "Pants",
+    colors: ["Black", "Gray", "Navy"],
+    sizes: ["Small", "Medium", "Large", "X-Large"],
+    brand: "Athletic Pro",
+    style: "Sports"
+  },
+  {
+    id: 13,
+    name: "Formal White Dress Shirt",
+    new_price: 220,
+    rating: 4.6,
+    image: "/assets/images/products/product-3.png",
+    category: "Shirts",
+    colors: ["White"],
+    sizes: ["Small", "Medium", "Large", "X-Large", "XX-Large"],
+    brand: "Executive",
+    style: "Formal"
+  },
+  {
+    id: 14,
+    name: "Casual Cargo Shorts",
+    new_price: 110,
+    old_price: 140,
+    discount: 20,
+    rating: 3.8,
+    image: "/assets/images/products/product-4.png",
+    category: "Shorts",
+    colors: ["Olive", "Khaki", "Black"],
+    sizes: ["Medium", "Large", "X-Large"],
+    brand: "Outdoor Gear",
+    style: "Casual"
+  },
+  {
+    id: 15,
+    name: "Premium Hoodie",
+    new_price: 280,
+    rating: 4.7,
+    image: "/assets/images/products/product-5.png",
+    category: "Hoodies",
+    colors: ["Gray", "Black", "Navy"],
+    sizes: ["Small", "Medium", "Large", "X-Large"],
+    brand: "Comfort Zone",
+    style: "Casual"
+  }
 ];
 
 export default products;

@@ -1,0 +1,6 @@
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 575.98px) {
+    .breadcrumb-container {
+        padding: 0 1.2rem;
+    }
+}

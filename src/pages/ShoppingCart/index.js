@@ -1,6 +1,6 @@
 import Breadcrumb from "../../components/Breadcrumb";
-import Contact from "../../sections/Contact";
 import Cart from "../../sections/Cart";
+import Contact from "../../sections/Contact";
 const ShoppingCart = () => {
   const previousList = [{ title: "Home", link: "/" }];
   return (

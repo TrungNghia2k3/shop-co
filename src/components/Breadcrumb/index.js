@@ -1,6 +1,7 @@
+import "./Breadcrumb.css";
 const Breadcrumb = ({ previous_list, current }) => {
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 breadcrumb-container">
       <nav className="breadcrumb-svg-arrow" aria-label="breadcrumb">
         <ol className="breadcrumb">
           {previous_list &&
