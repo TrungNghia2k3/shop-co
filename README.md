@@ -111,6 +111,11 @@ The application will be available at `http://localhost:3000`
 
 ---
 
+## 🌐 Live Demo
+Visit the live website: [Website](https://shop-co-fawn-zeta.vercel.app/)
+
+---
+
 ## 📄 License
 Project for educational purposes only
 
